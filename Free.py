@@ -1,17 +1,25 @@
-import os
+import os, platform
 
- 
+try:
 
-os.system('git pull')
+    import requests
 
- 
+except:
 
-os.system('termux-setup-storage')
+    os.system('pip install requests')
 
- 
+import requests
 
-import v6
+bit = platform.architecture()[0]
 
- 
+if bit == '64bit':
 
-v6.riaz()
+    from v6 import riaz
+
+    riaz()
+
+elif bit == '32bit':
+
+    from v6s import riaz
+
+    riaz()
